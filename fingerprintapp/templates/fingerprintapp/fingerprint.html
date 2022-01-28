@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+
+
+<head>
+    <script src="{% static 'fingerprintapp\js\node_modules\clientjs\dist\client.min.js' %}"></script>
+</head>
+
+<body>
+
+
+<div>
+<h1 align="center">Fingerprint ID - <span id="fingerprint"></span></h1>
+<br>
+<p>User Agent - <span id="useragent"></span></p>
+<p>Engine - <span id="engine"></span></p>
+<p>OS - <span id="os"></span></p>
+<p>Screen print - <span id="screenprint"></span></p>
+<p>CPU - <span id="cpu"></span></p>
+<p>Engine Version - <span id="engineversion"></span></p>
+<p>Plugins - <span id="plugins"></span></p>
+<p>Fonts - <span id="fonts"></span></p>
+<p>Time Zone - <span id="timezone"></span></p>
+<p>Language - <span id="language"></span></p>
+</div>
+
+
+
+<script>
+
+
+    var client = new ClientJS(); // Create A New Client Object
+
+    var userAgent = client.getUserAgent();
+
+    var engine = client.getEngine(); // Get Engine
+
+    var OS = client.getOS(); // Get OS Version
+
+    var osVersion = client.getOSVersion(); // Get OS Version
+
+    var screenPrint = client.getScreenPrint(); // Get Screen Print
+
+    var CPU = client.getCPU(); // Get CPU Architecture
+
+    var engineVersion = client.getEngineVersion(); // Get Engine Version
+
+    var plugins = client.getPlugins(); // Get Plugins
+
+    var fonts = client.getFonts(); // Get Fonts
+
+    var timeZone = client.getTimeZone(); // Get Time Zone
+
+    var language = client.getLanguage(); // Get User Language
+
+    var fingerprint = client.getCustomFingerprint(userAgent, engine, OS, osVersion, screenPrint, CPU, engineVersion, plugins, fonts, timeZone, language);
+
+
+
+    console.log('Fingerprint ID - ' + fingerprint);
+    console.log('User Agent - ' + userAgent);
+    console.log('Engine - ' + engine, engineVersion);
+    console.log('OS and OS version - ' + OS, osVersion);
+    console.log('CPU - ' + CPU);
+    console.log('Screen Print - ' + screenPrint);
+    console.log('Plugins - ' + plugins);
+    console.log('Fonts - ' + fonts);
+    console.log('Time Zone - ' + timeZone);
+    console.log('Language - ' + language);
+
+    document.getElementById("fingerprint").innerHTML = fingerprint;
+    document.getElementById("useragent").innerHTML = userAgent;
+    document.getElementById("engine").innerHTML = engine + ' ' + engineVersion;
+    document.getElementById("os").innerHTML = OS + ' ' + osVersion;
+    document.getElementById("screenprint").innerHTML = screenPrint;
+    document.getElementById("cpu").innerHTML = CPU;
+    document.getElementById("plugins").innerHTML = plugins;
+    document.getElementById("fonts").innerHTML = fonts;
+    document.getElementById("timezone").innerHTML = timeZone;
+    document.getElementById("language").innerHTML = language;
+
+</script>
+
+
+
+</body>
+</html>
