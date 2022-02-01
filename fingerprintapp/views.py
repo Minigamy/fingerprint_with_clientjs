@@ -5,4 +5,5 @@ from django.views import View
 
 class Fingerprint(View):
     def get(self, request):
-        return render(request, 'fingerprintapp/fingerprint.html')
+        ip = request.headers.get('X-Real-IP')
+        return render(request, 'fingerprintapp/fingerprint.html', context={'ip': ip})
