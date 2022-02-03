@@ -10,8 +10,7 @@ class Fingerprint(View):
     def get(self, request):
         is_tor = False
 
-        request_ip = '61.7.195.194'
-            # str(request.headers.get('X-Real-IP'))
+        request_ip = str(request.headers.get('X-Real-IP'))
 
         if request_ip in data.tor_ip_list:
             is_tor = True
