@@ -11,6 +11,7 @@ class Fingerprint(View):
         is_tor = False
 
         request_ip = str(request.headers.get('X-Real-IP'))
+        proxy_ip = str(request.headers.get('X-Forwarded-For'))
 
         if request_ip in data.tor_ip_list:
             is_tor = True
@@ -22,6 +23,7 @@ class Fingerprint(View):
 
         return render(request, 'fingerprintapp/fingerprint.html',
                       context={'ip': request_ip,
+                               'proxy_ip': proxy_ip,
                                'is_tor': is_tor,
                                'is_vpn': ipinfo['vpn'],
                                'is_proxy': ipinfo['proxy']}
