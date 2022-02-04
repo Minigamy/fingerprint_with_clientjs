@@ -15,6 +15,7 @@ class Fingerprint(View):
         proxy_ip2 = str(request.headers.get('Forwarded'))
         proxy_ip3 = str(request.headers.get('X-Forwarded-Host'))
         proxy_ip4 = str(request.headers.get('X-Forwarded-Proto'))
+        proxy_ip5 = str(request.headers.get('Via'))
 
         if request_ip in data.tor_ip_list:
             is_tor = True
@@ -30,6 +31,7 @@ class Fingerprint(View):
                                'proxy_ip2': proxy_ip2,
                                'proxy_ip3': proxy_ip3,
                                'proxy_ip4': proxy_ip4,
+                               'proxy_ip5': proxy_ip5,
                                'is_tor': is_tor,
                                'is_vpn': ipinfo['vpn'],
                                'is_proxy': ipinfo['proxy']}
