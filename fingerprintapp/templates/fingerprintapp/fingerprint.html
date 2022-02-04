@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
 
 
 
@@ -24,12 +24,19 @@
 <p>Fonts - <span id="fonts"></span></p>
 <p>Time Zone - <span id="timezone"></span></p>
 <p>Language - <span id="language"></span></p>
+    </br>
 <p>IP - {{ ip }}</p>
 <p>X-Forwarded-For - {{ proxy_ip1 }}</p>
 <p>Forwarded - {{ proxy_ip2 }}</p>
 <p>X-Forwarded-Host - {{ proxy_ip3 }}</p>
 <p>X-Forwarded-Proto - {{ proxy_ip4 }}</p>
 <p>Via - {{ proxy_ip5 }}</p>
+<p>Proxy-Authenticate - {{ proxy_ip6 }}</p>
+<p>Proxy-Authentication-Info - {{ proxy_ip7 }}</p>
+<p>Proxy-Authorization - {{ proxy_ip8 }}</p>
+<p>Proxy-Connection - {{ proxy_ip9 }}</p>
+<p>X-Request-URI - {{ proxy_ip10 }}</p>
+    </br>
 <p>Using Tor - {{ is_tor }}</p>
 <p>Using VPN - {{ is_vpn }}</p>
 <p>Using Proxy - {{ is_proxy }}</p>
