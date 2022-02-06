@@ -11,16 +11,6 @@ class Fingerprint(View):
         is_tor = False
 
         request_ip = str(request.headers.get('X-Real-IP'))
-        proxy_ip1 = str(request.headers.get('X-Forwarded-For'))
-        proxy_ip2 = str(request.headers.get('Forwarded'))
-        proxy_ip3 = str(request.headers.get('X-Forwarded-Host'))
-        proxy_ip4 = str(request.headers.get('X-Forwarded-Proto'))
-        proxy_ip5 = str(request.headers.get('Via'))
-        proxy_ip6 = str(request.headers.get('Proxy-Authenticate'))
-        proxy_ip7 = str(request.headers.get('Proxy-Authentication-Info'))
-        proxy_ip8 = str(request.headers.get('Proxy-Authorization'))
-        proxy_ip9 = str(request.headers.get('Proxy-Connection'))
-        proxy_ip10 = str(request.headers.get('X-Request-URI'))
 
         if request_ip in data.tor_ip_list:
             is_tor = True
@@ -32,17 +22,9 @@ class Fingerprint(View):
 
         return render(request, 'fingerprintapp/fingerprint.html',
                       context={'ip': request_ip,
-                               'proxy_ip1': proxy_ip1,
-                               'proxy_ip2': proxy_ip2,
-                               'proxy_ip3': proxy_ip3,
-                               'proxy_ip4': proxy_ip4,
-                               'proxy_ip5': proxy_ip5,
-                               'proxy_ip6': proxy_ip6,
-                               'proxy_ip7': proxy_ip7,
-                               'proxy_ip8': proxy_ip8,
-                               'proxy_ip9': proxy_ip9,
-                               'proxy_ip10': proxy_ip10,
                                'is_tor': is_tor,
                                'is_vpn': ipinfo['vpn'],
-                               'is_proxy': ipinfo['proxy']}
+                               'is_proxy': ipinfo['proxy']
+                               }
                       )
+

@@ -51,17 +51,11 @@
 
     var userAgent = client.getUserAgent();
 
-    // var engine = client.getEngine(); // Get Engine
-
     var OS = client.getOS(); // Get OS Version
 
     var osVersion = client.getOSVersion(); // Get OS Version
 
     var screenPrint = client.getScreenPrint(); // Get Screen Print
-
-    // var CPU = client.getCPU(); // Get CPU Architecture
-
-    // var engineVersion = client.getEngineVersion(); // Get Engine Version
 
     var plugins = client.getPlugins(); // Get Plugins
 
@@ -77,9 +71,7 @@
 
     console.log('Fingerprint ID - ' + fingerprint);
     console.log('User Agent - ' + userAgent);
-    // console.log('Engine - ' + engine, engineVersion);
     console.log('OS and OS version - ' + OS, osVersion);
-    // console.log('CPU - ' + CPU);
     console.log('Screen Print - ' + screenPrint);
     console.log('Plugins - ' + plugins);
     console.log('Fonts - ' + fonts);
@@ -88,14 +80,13 @@
 
     document.getElementById("fingerprint").innerHTML = fingerprint;
     document.getElementById("useragent").innerHTML = userAgent;
-    // document.getElementById("engine").innerHTML = engine + ' ' + engineVersion;
     document.getElementById("os").innerHTML = OS + ' ' + osVersion;
     document.getElementById("screenprint").innerHTML = screenPrint;
-    // document.getElementById("cpu").innerHTML = CPU;
     document.getElementById("plugins").innerHTML = plugins;
     document.getElementById("fonts").innerHTML = fonts;
     document.getElementById("timezone").innerHTML = timeZone;
     document.getElementById("language").innerHTML = language;
+
 
 </script>
 
